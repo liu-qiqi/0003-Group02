@@ -1,0 +1,211 @@
+/* Top navigation style */
+        ul.navbar{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index:999;
+
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            
+            background-color: rgb(154,132,109);
+            
+        }
+
+        li{
+            float: left;
+        }
+        ul.navbar li a{
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-family:'Montserrat',sans-serif;
+            font-weight: bold;
+        }
+
+        ul.navbar li a:hover{
+                      color: white  ;
+                font-weight: bold;
+        background-color: rgb(176, 158, 140);
+        }
+        .active {
+        background-color: rgb(123, 93, 62);
+        }
+
+/*page style*/
+* {
+            margin: 0;
+        }
+        .line {
+          fill: none;
+          stroke: steelblue;
+          stroke-width: 2px;
+        }
+
+        .grid line {
+          stroke: lightgrey;
+          stroke-opacity: 0.6;
+          shape-rendering: crispEdges;
+        }
+        
+        .grid path{
+          stroke-width: 0;
+        }
+
+        .overlay{
+            fill: none;
+            pointer-events: all;
+          }
+
+        .focus circle {
+            fill: steelblue;
+          }
+        
+        .tooltip {
+          width: 180px;
+          padding: 4px 10px;
+          border: 1px solid #aaa;
+          border-radius: 4px;
+          box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+          position: fixed;
+          background-color: white;
+          font-size: 14px;
+          pointer-events: none;
+          -webkit-transition: all 0.25s;
+          -moz-transition: all 0.25s;
+          -ms-transition: all 0.25s;
+          -o-transition: all 0.25s;
+          transition: all 0.25s;
+          }
+
+        .tooltip div {
+          margin: 3px 0;
+          }
+
+        .tooltip-year, .tooltip-title {
+          font-weight: bold;
+          }
+        
+        body {
+            margin: 0;
+/*            box-sizing: content-box;*/
+            z-index:1;
+        }
+        .title {
+            font-size: 45px;
+            text-align: center;
+            font-weight:lighter;
+            font-family:'Montserrat',sans-serif;
+            font-weight: bold;
+            color:rgb(0, 0, 0);
+        }
+        .middleThings{
+            width: 800px;
+            margin: 0 auto;
+        }
+        .midHeader{
+            background-color:#E6E1DD;
+            margin-top:50px;
+            margin-bottom:10px;
+            text-align: center;
+            color:rgb(123, 93, 62);
+            font-size:25px;
+            font-family:'Geneva',sans-serif;
+            vertical-align:middle;
+            font-weight:bold;
+            margin-left:10px;
+        }
+        .text{
+            font-size: 20px;
+            text-align: center;
+            font-weight:lighter;
+            font-family:'Geneva',sans-serif;
+            margin-top:35px;
+            margin-bottom:35px;
+        }
+        .mid-text{
+            font-size: 20px;
+            text-align: justify;
+            font-weight:lighter;
+            font-family:'Geneva',sans-serif;
+            margin-top:35px;
+            margin-bottom:35px;
+            margin-left:10px;
+            width:100%;
+        }
+        
+        .rough-box {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-bottom:35px;
+            padding: 20px;
+            color: rgb(255, 255, 255);
+            background-image: paint(rough-painter);
+        }
+        .rough-box {
+            --rough-border-width: 3;
+            --rough-fill: rgb(194, 188, 188);
+            --rough-fill-weight: 9;
+            --rough-fill-style: zigzag;
+        }
+        .rough-box-title {
+            margin: 0 auto;
+            margin-top:70px;
+            margin-bottom:35px;
+            padding: 20px;
+            color: rgb(255, 255, 255);
+            background-image: paint(rough-painter);
+        }
+        .rough-box-title {
+            --rough-border-width: 3;
+            --rough-fill: rgb(219, 219, 219); 
+            --rough-fill-weight: 9;
+            --rough-fill-style: zigzag;
+        }
+
+        .button-container{
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        hr {
+          margin-top: 50px;
+          margin-bottom: 50px;
+            align-content: center;
+        }
+
+        footer {
+          font: 14px "Helvetica Neue", Helvetica, sans-serif;
+          text-align: center;
+          margin: 50px 0 100px 0;
+        }
+
+/*charts*/
+        #ge_chart1 {
+            width:  650px;
+			height: 450px;
+            margin: 20px auto;
+            background-color: #f4f4f4;
+            padding-right: 10% auto;
+            padding-left: 10% auto;
+		}
+        #ge_chart2 {
+            width:  650px;
+			height: 450px;
+            margin: 20px auto;
+            background-color: #f4f4f4;
+            padding-right: 10% auto;
+            padding-left: 10% auto;
+		}
+        #ge_chart3 {
+            width:  650px;
+			height: 450px;
+            margin: 20px auto;
+            background-color: #f4f4f4;
+            margin: 0 auto;
+            padding-right: 10% auto;
+            padding-left: 10% auto;
+		}
