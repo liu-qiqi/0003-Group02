@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Green Park</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@latest/dist/echarts.min.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.js" type="application/javascript"></script>
+    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/d3/7.3.0/d3.js" type="application/javascript"></script>
+    <link href="./green space/green_in_main.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <!-- Top navigation -->
+    <ul class="navbar">
+        <li style="float:right"><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="AirQuality.html">Air Quality</a></li>
+        <li><a class="active" href="GreenSpaces.html">Green Spaces</a></li>
+        <li><a href="CleanEnergy.html">Clean Energy</a></li>
+        <li><a href="BikeSharing.html">Bike Sharing</a></li>
+    </ul>
+
+    <div class="main-content">
+        <div class="mid-title">
+            Evolving Greens
+        </div>
+        <div class="mid-name">
+            Green Parks in NYC
+        </div>
+
+        <hr>
+
+        <div class="intro-container">
+            <div class="intro-text">
+                <p>The continuous expansion of green park areas in New York City over the past two decades, as illustrated by the data, underscores the city's commitment to fostering urban regeneration through environmental stewardship. From the year 2000
+                    to 2024, the total area of green parks has increased from 29,719.52 acres to 30,849.08 acres. This represents a net growth rate of about 3.8%, with an average annual growth rate of approximately 0.2%. </p>
+                <p>This increase in green spaces can significantly contribute to the city's urban renewal in several ways. Firstly, the expansion of green parks can improve the city's air quality, providing a healthier living environment for its residents.
+                    Secondly, green parks offer recreational spaces that enhance the quality of life and promote community cohesion. They can serve as venues for community activities and social gatherings, fostering stronger neighborhood ties.</p>
+            </div>
+            <div>
+
+                <h2 class="mid-name" font-family: "Geneva", sans-serif;>Green Park Area Growth</h2>
+                <div id="green-echart" style="width: 500px;height:450px;"></div>
+
+
+            </div>
+        </div>
+
+
+        <div class="header-content">
+            <div class="midHeader">
+                <span>
+                  NYC's Growing Green: A Visual Journey through the Changes in City Parks from 2000 Onwards
+            </span>
+            </div>
+
+            <!-- <div style="margin-top:250px;background-color:#fdf2ea;font-size:25px; text-align: center;color:rgb(123, 93, 62);font-family:'Geneva',sans-serif;vertical-align:middle;
+            font-weight:bold;margin-left:10px;" font-family: "Geneva", sans-serif;>
+                <span>
+                    NYC's Growing Green: A Visual Journey through the Changes in City Parks from 2000 Onwards
+                </span>
+            </div> -->
+
+            <div clss="vis-intro">
+                <p>Explore the transformation of New York City's parks over time with our interactive visualization map. Witness the evolution of green spaces as we take you on a visual journey starting from the year 2000.</p>
+                <p>With the timeline animation control, observe how parks have expanded and changed throughout the years. Engage with the dynamic timeline and pause at any point to delve into the details of each period. Discover the diverse types of parks
+                    and their sizes, all conveniently displayed when hovering over a park on the map.</p>
+                <p>Navigate seamlessly through the city using the FlyTo feature (when timeline animation start), allowing you to zoom in and explore the parks added in each period in detail. Use the search functionality to quickly find your favorite parks
+                    by name and instantly locate them on the map.</p>
+                <p>The color scale visually represents different time periods, providing a striking visual depiction of the growth and transformation of NYC's parks. Witness the changing landscape and appreciate the city's commitment to green spaces.</p>
+                <p>Join us on this captivating journey through time and witness "NYC's Growing Green" as we explore the changes in city parks from 2000 onwards.</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="./green space/green_park.html"></iframe>
+    </div>
+
+
+    <footer>
+        © 2023 CASA 0003 <br> Digital Visualisation <br> Group 02
+    </footer>
+
+
+    <script type="text/javascript">
+        // Initialize echarts instance based on prepared DOM
+        var myChart = echarts.init(document.getElementById('green-echart'));
+
+        // Asynchronously load data
+        fetch('./green space/park_chart_data.json').then(res => res.json()).then(data => {
+            var years = data.years;
+            var total_areas = data.total_area;
+            var growth_rates = data.growth_rate;
+
+            // Specify chart configuration and data
+            var option = {
+                // title: {
+                //     text: 'Green Park Area and Growth Rate',
+                //     left: 'center',
+                //     top: '5%'
+                // },
+                grid: { // Add grid property for aligning y-axis on both sides
+                    containLabel: true // Ensure all labels are displayed within the grid
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        crossStyle: {
+                            color: '#1096CB '
+                        }
+                    }
+                },
+                legend: {
+                    data: ['Total Area (acres)', 'Growth Rate (%)']
+                },
+                xAxis: {
+                    type: 'category',
+                    data: years,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#1096CB ' // Set x-axis line color to blue
+                        }
+                    }
+                },
+                yAxis: [{
+                    type: 'value',
+                    name: 'Total Area (acres)',
+                    min: 29000,
+                    max: 31000,
+                    interval: 200,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#1096CB ' // Set y-axis line color to blue
+                        }
+                    }
+                }, {
+                    type: 'value',
+                    name: 'Growth Rate (%)',
+                    min: 0,
+                    max: 2,
+                    interval: 0.2,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#1096CB ' // Set y-axis line color to blue
+                        }
+                    }
+                }],
+                series: [{
+                    name: 'Total Area (acres)',
+                    type: 'bar',
+                    itemStyle: {
+                        color: '#F393B9 ' // Set color of the bars as pink
+                    },
+                    data: total_areas
+                }, {
+                    name: 'Growth Rate (%)',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    lineStyle: {
+                        color: '#1096CB  ' // Set line color as pink
+                    },
+                    data: growth_rates
+                }]
+            };
+
+            // Use the specified configuration and data to display the chart.
+            myChart.setOption(option);
+        });
+    </script>
+</body>
+
+</html>

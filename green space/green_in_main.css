@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-family: "Geneva", sans-serif;
+    font-size: medium;
+}
+
+.main-content {
+    margin: 0 15%;
+    padding: 0;
+}
+
+
+/* Top navigation style */
+
+ul.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(154, 132, 109);
+    z-index: 100;
+}
+
+li {
+    float: left;
+}
+
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul.navbar li a:hover {
+    color: white;
+    font-weight: bold;
+    background-color: rgb(176, 158, 140);
+}
+
+.active {
+    background-color: rgb(123, 93, 62);
+}
+
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 10%;
+    /* 左右留出10%的空间 */
+}
+
+iframe {
+    width: 90%;
+    /* iframe宽度设置为100%，以填满其父容器 */
+    height: 700px;
+    /* 可根据需要调整iframe的高度 */
+}
+
+.header-content {
+    /* text-align: center; */
+    /* 将文字和图片居中 */
+    padding: 20px;
+    /* 增加一些内边距 */
+}
+
+.mid-title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 60px;
+    margin-top: 80px;
+    width: 100%;
+}
+
+.mid-name {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 30px 0;
+    text-align: center;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+.intro-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.intro-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.midHeader {
+    background-color: rgb(154, 132, 109);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    vertical-align: middle;
+    font-weight: bold;
+    /* margin-left: 10px; */
+    font-family: "Geneva", sans-serif;
+}
+
+
+/* 你的其他CSS代码... */
+
+footer {
+    font: 15px "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+    margin: 50px 0 100px 0;
+}
