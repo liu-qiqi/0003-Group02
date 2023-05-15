@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Air</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.2/echarts.min.js"
+    integrity="sha512-VdqgeoWrVJcsDXFlQEKqE5MyhaIgB9yXUVaiUa8DR2J4Lr1uWcFm+ZH/YnzV5WqgKf4GPyHQ64vVLgzqGIchyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.js"
+    type="application/javascript"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/d3/7.3.0/d3.js" type="application/javascript"></script>
+  <link rel="stylesheet" href="./css/air_quality.css">
+</head>
+
+<body>
+  <!-- Top navigation -->
+  <ul class="navbar">
+    <li style="float:right; "><a href="index.html">Home</a></li>
+    <li><a href="Intro.html">About</a></li>
+    <li><a class="active" href="air_quality.html">Air Quality</a></li>
+    <li><a href="Green.html">Green Spaces</a></li>
+    <li><a href="Economy.html">Clean Energy</a></li>
+    <li><a href="Traffic.html">Bike Sharing</a></li>
+  </ul>
+
+  <div id='testdiv' style="margin-top:50px">
+  </div>
+
+  <div class="mid-title">
+    Breathing in the Metropolis
+  </div>
+  <div class="mid-name">
+    Mapping Air Pollution in NYC
+  </div>
+  
+  <hr>
+
+  <!-- Description -->
+  <div class="middleThings">
+
+    <div class="row row-1">
+      <div class="col col-l">
+        <iframe class="nyccas-sites" title="NYCCAS Sites" src="https://nycdohmh.maps.arcgis.com/apps/Embed/index.html?webmap=414f6c00466e456a9b8b994017cfc728&extent=-74.4827,40.5223,-73.5962,40.9116&home=true&zoom=true&previewImage=false&scale=true&disable_scroll=false&theme=light
+            width="100%" height="100%"></iframe>
+      </div>
+      <div class="col col-r">
+        <p>
+          The New York City Community Air Survey (NYCCAS) is the largest ongoing urban 
+          air monitoring program of any U.S. city. 
+          <br><br>
+          It was established by the New York City Department of Health and Mental Hygiene in 2007, 
+          and began collecting data in December 2008 for evaluating the air quality across NYC. 
+          <br><br>
+          They chose about 100 street light poles to set the monitors which includes the 
+          routine sites spread around the city and environmental justice sites near 
+          potentially high-emission locations. 
+        </p>
+      </div>
+    </div>
+
+    <div class="row row-2">
+      <div class="col.col-l">
+        <img src="./img/sign.png" />
+      </div>
+    </div>
+
+    <div class="row row-3">
+      <div class="col col-l">
+        <p>
+          The collectors on the road poles will be mounted 10-12 feet above the ground. 
+          PM2.5, NO2 and NO3 will be collected all year round, while O3 will be collected
+          in the summer due to anthropogenic sources such as NOx and VOC emissions,
+          which cause photochemical smog and secondary ozone production in the presence
+          of intense solar radiation and higher temperatures.
+        </p>
+      </div>
+      <div class="col col-r">
+        <img src="./img/methods.jpg" />
+      </div>
+    </div>
+
+    <div class="row row-4">
+      <p class="chart-title">
+        Citywide Air Pollution
+      </p>
+      <div id='citywide-line-chart'>
+      </div>
+    </div>
+
+    <div class="row row-5">
+      <p>
+        From 2013 to 2021, the latest year of available data, the annual mean of three leading
+        air pollutants decrease over the years:<br>
+        Fine particles (PM2.5) - 24.4%<br>
+        Nitrogen Dioxide (NO2) - 16.5%<br>
+        Nitric Oxide (NOx) - 31.7      
+      </p>
+    </div>
+
+    <div class="row row-6">
+      <div id="map">
+
+        <div class="map-overlay">
+          <div class="map-overlay-inner">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Annual Air Pollution</h1>
+
+            <table>
+              <tr>
+                <td>
+                  <input id="slider" type="range" min="0" max="8" step="1" value="0" list="tickmarks" />
+                  <datalist id="tickmarks">
+                    <option value="0" label="2013"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                    <option value="6"></option>
+                    <option value="7"></option>
+                    <option value="8" label="2021"></option>
+                  </datalist>
+                </td>
+                <td>
+                  <label id="year">2013</label>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="radios">
+                  &nbsp;&nbsp;<input type="radio" name="layers" value="PM2_5" checked /><label>PM2.5&nbsp;</label>
+                  <input type="radio" name="layers" value="NO2" /><label>NO2 &nbsp;</label>
+                  <input type="radio" name="layers" value="NOx" /><label>NOx &nbsp;</label>
+                  <input type="radio" name="layers" value="O3" /><label>O3</label>
+                </td>
+              </tr>
+            </table>
+
+            <div id="boro-line-chart"></div>
+
+            <div class="borough_map_wrapper">
+              <img src="./img/Borough_map.png" />
+            </div>
+
+            <p class="credit">
+              &nbsp;&nbsp;&nbsp;NYC Community Districts:
+              <a href="https://data.cityofnewyork.us/City-Government/Community-Districts/yfnk-k7r4">NYC OpenData</a>
+              <br />
+              &nbsp;&nbsp;&nbsp;Air Pollutants:
+              <a href="https://a816-dohbesp.nyc.gov/IndicatorPublic/beta/key-topics/airquality/">NYCCAS Air Quality Data
+                Hub</a>
+            </p>
+
+          </div>
+        </div>
+
+        <div class="map-legend">
+          <canvas id="legend" width="120" height="150" />
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <footer>
+    © 2023 CASA 0003 <br>
+    Digital Visualisation <br>
+    Group 02
+  </footer>
+
+  <script src="./js/air_quality_citywide_line_chart.js"></script>
+
+  <script src="./js/air_quality_map_boro_line_chart.js"></script>
+  <script src="./js/air_quality_map_legend.js"></script>
+  <script src="./js/air_quality_map.js"></script>
+</body>
+
+</html>
