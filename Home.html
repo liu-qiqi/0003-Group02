@@ -1,184 +1,162 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Home</title>
-  <style>
-    body{
-      margin: 0;
-      padding: 0;
-      background-image: url(./img/cover.jpg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed; 
-      background-size: cover;
-    }
+  <head>
+    <title>Home</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+  </head>
 
-    .masthead {
-      position: relative;
-      width: 100%;
-      height: auto;
-      min-height: 5rem;
-      padding: 6rem 0;
-      padding-left: 5px;
-    }
-
-    .btn {
-      -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-      box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-      padding: 1.25rem 2rem;
-      font-family: 'Montserrat',sans-serif;
-      font-size: 12px;
-      letter-spacing: .15rem;
-      border: 0;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background-color: rgb(205, 187, 131);/*default start block*/
-    }
-
-    .btn-primary:hover {
-      background-color: rgb(209, 183, 105);/*start block when u chose*/
-    }
-
-    /*.btn-primary:focus {
-      background-color: #83734f;
-      color: white;
-    }
-
-    .btn-primary:active {
-      background-color: #16f6e7 !important;
-    }*/
-
-    * {margin: 0;
-    }
-
-    /* Top navigation style */
-    ul.navbar{
-      position: fixed;
-      top: 0;
-      width: 100%;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: rgb(154,132,109); /*guide background*/
-    }
-
-    li{
-      float: left;
-    }
-
-    ul.navbar li a{
-      display: block;
-      color: rgb(244, 239, 224);/*default guide name*/
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-family:'Montserrat',sans-serif;
-      font-weight: bold;
-    }
-
-    ul.navbar li a:hover{
-      color: rgb(209, 183, 105);/*page name when u chose*/
-      font-weight: bold;
-
-    }
-
-    .active {
-      background-color: rgb(123, 93, 62);/*recent guide name block*/
-    }
-
-    #text_cov1 {
-      font-size: 40px;
-      font-variant-numeric: slashed-zero;
-      color: rgb(0, 66, 66);
-      font-family: 'rockwell';
-      font-weight: bold;
-      opacity: 0.7
-    }
-
-
-    #text_cov2 {
-      font-size: 60px;
-      font-family: rockwell;
-      font-weight: bolder;
-      font-variant-numeric: proportional-nums;
-      opacity: 1;
-      color: rgb(0, 66, 66);
-    }
-
-    .box_started {
-      position:relative;
-      align-items:center;
-      text-align: center;
-    }
-
-    .container {
-      position:relative;
-      text-align: center;
-    }
-    
-    #text{
-      color: rgb(242, 239, 206);
-      font-size: 20px;
-      position:relative;
-      font-weight: lighter;
-      font-family:'consolas',sans-serif;
-      margin-top:35px;
+  <body>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url("./img/cover.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
       }
 
-    .copyright{
-      color: lightgray;
-      font-size: 10px;
-      text-align: left;
-      font-weight: lighter;
-      font-family: 'Montserrat',sans-serif;
-      margin-top: 100px;
-      margin-left: 15px;
-    }
-  </style>
-</head>
-<body>
+      .masthead {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 5rem;
+        padding: 6rem 0;
+        padding-left: 5px;
+      }
+
+      .btn {
+        box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+        padding: 1.25rem 2rem;
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.15rem;
+        border: 0;
+        text-align: center;
+        text-decoration: none;
+        color: black;/*text on start button*/
+      }
+
+      .btn-primary {
+        background-color: rgb(205, 187, 131);/*default start block*/
+      }
+
+      .btn-primary:hover {
+        background-color: rgb(209, 183, 105);/*start block when u chose*/
+      }
+
+      * {
+        margin: 0;
+      }
+
+      /* Top navigation style */
+      ul.navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(154, 132, 109);/*guide background*/
+        z-index: 10;
+      }
+
+      li {
+        float: left;
+      }
+
+      ul.navbar li a {
+        display: block;
+        color: rgb(237, 230, 214);/*default guide name*/
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+      }
+
+      ul.navbar li a:hover {
+        color: rgb(209, 183, 105);/*page name when u chose*/
+        font-weight: bold;
+      }
+
+      .active {
+        background-color: rgb(123, 93, 62);/*recent guide name block*/
+      }
+
+      #text_cov1 {
+        font-size: 40px;
+        font-variant-numeric: slashed-zero;
+        color: rgba(110, 95, 40, 0.7);/*sub title*/
+        font-family: "rockwell";
+        font-weight: bold;
+      }
+
+      #text_cov2 {
+        font-size: 60px;
+        font-family: rockwell;
+        font-weight: bolder;
+        font-variant-numeric: proportional-nums;
+        color: rgb(101, 87, 36);/*title*/
+      }
+
+      .box_started {
+        align-items: center;
+        text-align: center;
+      }
+
+      .container {
+        text-align: center;
+        min-width: 700px;
+        margin: 0 auto;
+      }
+
+      #text {
+        color: rgb(225, 213, 177);
+        font-size: 20px;
+        position: relative;
+        font-weight: lighter;
+        font-family: "consolas", sans-serif;
+        margin-top: 35px;
+      }
+
+    </style>
+
+    <!-- Top navigator -->
     <ul class="navbar">
-      <li style="float:right; "><a class="active" href="Home.html">Home</a></li>
+      <li style="float: right"><a class="active" href="Home.html">Home</a></li>
       <li><a href="About.html">About</a></li>
       <li><a href="AirQuality.html">Air Quality</a></li>
-      <li><a href="GreenSpaces.html">Green Spaces</a></li>        
+      <li><a href="GreenSpaces.html">Green Spaces</a></li>
       <li><a href="CleanEnergy.html">Clean Energy</a></li>
       <li><a href="BikeSharing.html">Bike Sharing</a></li>
     </ul>
 
-    <!--<div class="detail" style="background-image: url(./img/cover2.jpg)"></div>-->
-    
-
-    <div id='testdiv'style="margin-top:50px">
-       <!-- <p> This is Cities Transformation Page.</p> -->
-    </div>
+    <div id="testdiv" style="margin-top: 50px"></div>
 
     <!-- Header -->
-  <header class="masthead">
-    <br>
+    <header class="masthead">
+      <br />
 
-    <div class="container">
-        <p id ="text_cov1">The revival of New York City -</p>
-        <p id ="text_cov2">Pedaling Towards Sustainability</p>
-        <p id ="text">
-          A Decade of Progress in Air Quality, Green Spaces, <br>
-          Clean Energy and Bike Sharing in NYC.</p>
-        </div>
-        <br><br><br><br>
+      <div class="container">
+        <p id="text_cov1">Subtitle: ae a4han aehjaetna rae</p>
+        <p id="text_cov2">Title: gran aerh arhae aejyj rgnf</p>
+        <p id="text">
+          Test:fdx srhnmsr ytjnsj aerhnrysmt arha ahg ajhts rjsjs <br />
+          aht shar gbhwatna rgan arna rabawna rhan ar.
+        </p>
+        <br /><br /><br /><br />
         <div class="box_started">
-       <input  type=button onClick="location.href='About.html'" class="btn btn-primary js-scroll-trigger" value='GET STARTED'>
-       </div>
-    </div>
-
-
-  </header>
-
-  <div class="copyright">
-    <p>© Photograph: Courtesy of HouseFresh
-    </p>
-  </div>
-</body>
+          <a href="About.html" class="btn btn-primary js-scroll-trigger"
+            >GET STARTED</a
+          >
+        </div>
+      </div>
+    </header>
+  </body>
 </html>
