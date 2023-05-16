@@ -55,7 +55,6 @@ ul.navbar li a:hover {
   font-size: 60px;
   font-family:"Geneva",sans-serif;
   margin-top: 80px;
-  width: 100%;
 }
 
 .mid-name {
@@ -63,19 +62,7 @@ ul.navbar li a:hover {
   font-weight: 700;
   margin: 30px 0;
   text-align: center;
-  text-transform: capitalize;
   font-family: "Geneva",sans-serif;
-  width: 100%;
-}
-
-.mid-text {
-  font-size: 20px;
-  font-weight: lighter;
-  font-family: 'Geneva',sans-serif;
-  margin-top: 35px;
-  margin-bottom: 35px;
-  margin-left: 10px;
-  width: 100%;
 }
 
 .row {
@@ -84,8 +71,6 @@ ul.navbar li a:hover {
   font-size: 20px;
   text-align: justify;
 }
-
-
 
 .row.row-1 {
   text-align: justify;
@@ -266,9 +251,7 @@ hr {
 }
 
 footer {
-  font: 14px "Helvetica Neue", Helvetica, sans-serif;
+  font: 16px "Helvetica Neue", Helvetica, sans-serif;
   text-align: center;
   margin: 50px 0 100px 0;
 }
-
-
