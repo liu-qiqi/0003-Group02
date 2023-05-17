@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>bike</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <link href='bike_map.css' rel='stylesheet' />
+    <!--D3.js-->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!--ECharts-->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <!-- DeckGL Library -->
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+
+
+<body>
+
+
+<div id="map"></div>
+
+<div id="map_describe">
+    <p>The amount of the bike sharing</p>
+    <div class='session'>
+        <h2>The legend of amount (unit: log)</h2>
+
+        <div class='row colors'></div>
+        <div class='row labels'>
+            <div class='label'>8</div>
+            <div class='label'>8.5</div>
+            <div class='label'>9</div>
+            <div class='label'>9.5</div>
+            <div class='label'>10</div>
+            <div class='label'>10.5</div>
+        </div>
+
+        <div class="session">
+            <h2>Year: <label id="active-hour">2014</label></h2>
+            <input id="slider" class="row" type="range" min="0" max="6" step="1" value="0"/>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoidWNmbmliYiIsImEiOiJjbGQxbTh1c2UwMDEwM3Zsa2czcGtiN3l0In0.n9CxOgCLWgnSu17HtDWXmA'; // Put your Mapbox Public Access token here
+
+        // Load a new map in the 'map' HTML div
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/ucfnibb/cleygekzw000j01o3n8zk5jjq', // style location
+            center: [-73.99, 40.72], // starting position [lng, lat]
+            zoom: 11.5 // starting zoom
+        });
+        map.on('load', function ()  {    // This is our first example of asynchronous JS. We can only add additional layers after the map has loaded
+            // Add the circle layer to the map
+
+            map.addLayer({
+                id: 'bikedata2014',
+                type: 'circle',
+                source: {
+                    type: 'vector',
+                    url: 'mapbox://ucfnibb.1wtsb5ch' // Your Mapbox tileset Map ID
+                },
+                'source-layer': '201401bike-9pk2zo', // name of tilesets
+            })
+        })
+        map.on('load', () => {
+            let filterYear = ['==', ['number', ['get', 'year']], 2014];
+            map.addLayer({
+                id: 'bikeamount',
+                type: 'circle',
+                source: {
+                    type: 'vector',
+                    url: 'mapbox://ucfnibb.3bnkwiva' // Your Mapbox tileset Map ID
+                },
+                'source-layer': 'bike_data_count_by_station-7fc538', // name of tilesets
+                'layout': {
+                    'visibility': 'visible'
+                },
+                paint: {
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'],
+                        ['number', ['get', 'data']],
+                        1,
+                        3,
+                        5,
+                        7
+                    ],
+                    'circle-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['number', ['get', 'data']],
+                        8,
+                        '#2DC4B2',
+                        8.5,
+                        '#3BB3C3',
+                        9,
+                        '#669EC4',
+                        9.5,
+                        '#8B88B6',
+                        10,
+                        '#A2719B',
+                        10.5,
+                        '#AA5E79'
+                    ],
+                    'circle-opacity': 0.9
+                },
+                'filter': ['all', filterYear]
+            });
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // update hour filter when the slider is dragged
+
+        document.getElementById('slider').addEventListener('input', (event) => {
+            const year = parseInt(event.target.value);
+            //console.log(year)
+// update the map
+            filteryear = ['==', ['number', ['get', 'year']], year+2014];
+            map.setFilter('bikeamount', filteryear);
+// update text in the UI
+            document.getElementById('active-hour').innerText = year+2014;
+        });
+
+
+    </script>
+</body>
+</html>
