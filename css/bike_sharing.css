@@ -3,7 +3,7 @@ ul.navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index:999;
+    z-index:100;
     list-style-type: none;
     margin: 0;
     padding: 0;
