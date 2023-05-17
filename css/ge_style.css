@@ -1,45 +1,48 @@
-/* Top navigation style */
-ul.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:100;
-    list-style-type: none;
-    margin: 0;
+body {margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: rgb(154,132,109);
 }
 
-li{
-    float: left;
+/* Top navigation style */
+ul.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  background-color: rgb(154,132,109);
+
+  z-index: 100;
+}
+
+li {
+  float: left;
 }
 
 ul.navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family:'Montserrat',sans-serif;
-    font-weight: bold;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family:'Montserrat',sans-serif;
+  font-weight: bold;
 }
 
 ul.navbar li a:hover {
-    color: white  ;
-    font-weight: bold;
-    background-color: rgb(176, 158, 140);
+  color: white;
+  font-weight: bold;
+  background-color: rgb(176, 158, 140);
 }
 
 .active {
-    background-color: rgb(123, 93, 62);
+  background-color: rgb(123, 93, 62);
 }
-
 
 /*page style*/
-* {margin: 0;
-}
-
 .line {
   fill: none;
   stroke: steelblue;
@@ -90,10 +93,6 @@ ul.navbar li a:hover {
     font-weight: bold;
 }
 
-body {margin: 0;
-/* box-sizing: content-box;*/
-    z-index:1;
-}
 
 .title {
     font-size: 45px;
@@ -120,6 +119,22 @@ body {margin: 0;
     vertical-align:middle;
     font-weight:bold;
     margin-left:10px;
+}
+
+.mid-title {
+  text-align: center;
+  font-weight: 800;
+  font-size: 60px;
+  font-family:'Geneva',sans-serif;
+  margin-top: 80px;
+}
+
+.mid-name {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 30px 0;
+  text-align: center;
+  font-family: "Geneva",sans-serif;
 }
 
 .text {
