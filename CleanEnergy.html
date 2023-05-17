@@ -1,120 +1,131 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Sustainable Revival in NYC - Transforming the Concrete Jungle</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Revival in NYC - Transforming the Concrete Jungle</title>
+  
+    <!--style-->
     <link rel="stylesheet" href="./css/ge_style.css">
     
     <!--Load echarts.js-->
     <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
-    <!-- Load d3.js -->
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <!-- Color Scale -->
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> 
-    <script type="module" src="tooltip.js"></script>
-    <script type="module" src="small_multiples.js"></script>
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-     <style src='./css/ge_style.css'></style>
-    
 </head>
-<body>
-    
-    <!-- Top navigation div -->
-    <ul class="navbar">
-        <li style="float:right"><a href="Home.html">Home</a></li>
-        <li><a href="About.html">About</a></li>
-        <li><a href="AirQuality.html">Air Quality</a></li>
-        <li><a href="GreenSpaces.html">Green Spaces</a></li>
-        <li><a class="active" href="CleanEnergy.html">Clean Energy</a></li>
-        <li><a href="BikeSharing.html">Bike Sharing</a></li>
-    </ul>
-    
-    <!-- Title -->
-    <div class="middleThings">
-        <div class="mid-title">
-            A Cleaner City
+
+    <body>
+        <!-- Top navigation div -->
+        <ul class="navbar">
+            <li style="float:right"><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="AirQuality.html">Air Quality</a></li>
+            <li><a href="GreenSpaces.html">Green Spaces</a></li>
+            <li><a class="active" href="CleanEnergy.html">Clean Energy</a></li>
+            <li><a href="BikeSharing.html">Bike Sharing</a></li>
+        </ul>
+
+
+        <!-- Title -->
+        <div class="middleThings">
+            <div class="mid-title">
+                A Cleaner City
+            </div>
+            <div class="mid-name">
+              Clean Energy in NYC
+            </div>
         </div>
-        <div class="mid-name">
-            Clean Energy in NYC
-        </div>
-        </div>
-        
+
         <hr>
-            
+
+        <!--Intro-->
         <div class="middleThings">
             <p class="mid-text">
                 The green economy in New York State is flourishing, with a strong focus on promoting sustainability, improving air quality, adopting clean energy solutions, and encouraging the use of electric vehicles. The city has taken significant steps towards creating a greener future and combating the challenges posed by climate change.
             </p>
+
             <p class="mid-text">
                 It is an integral part of the state's vision for a sustainable future. By focusing on air quality improvement, clean energy adoption, and the promotion of electric vehicles, the city is making significant strides towards a greener and more environmentally friendly urban landscape. These efforts not only benefit the environment but also create new job opportunities, spur economic growth, and improve the overall well-being of its residents.
             </p>
+
             <p class="mid-text">
                 All graphs are based on data from 
                 <a href="https://www.nyserda.ny.gov/About/Publications/New-York-Clean-Energy-Industry-Report">New York Clean Energy Industry Report</a> and 
                 <a href="https://www.nyc.gov/html/dot/html/motorist/electric-vehicles.shtml#/find/nearest">NYC Gov Open Data</a>.
             </p>
         </div>
+
         
+        <!-- Chart1 -->
         <div class="middleThings">
-            
-            <!--chart1-->
             <div class="midHeader">
                 <span>
                     Clean Energy Industry
                 </span>
             </div>
-            <p class="mid-text">
-                The graph below shows the growth of clean energy employment in New York State from 2015 to 2021 following the lauch of the OneNYC Strategy in 2015.
-            </p>
-            
-            <div id="ge_chart1"></div>
-            <p class="mid-text">
-                <li><b>165,000</b> - In the last quarter of 2021, clean energy businesses across New York employed more than 165,000 workers. </li>
-                <li><b>5% or 7,369</b> - This represents an increase of about 5%, or 7,369 jobs, compared to the end of 2020.</li>
-                <li><b>17%</b> - Clean energy employment in the State was 17% higher compared to the baseline estimate for 2015. </li>
-            </p>
-            
-            <!--chart2-->
-            <div style="margin-top:200px; background-color:#E6E1DD; font-size:25px; text-align: center;color:rgb(123, 93, 62);font-family:'Geneva',sans-serif;vertical-align:middle;
-            font-weight:bold;margin-left:10px;">
+
+            <div class="mid-text">
+                <div class="left" style="width">
+                    <b>165,000</b> - In the last quarter of 2021, clean energy businesses across New York employed more than 165,000 workers. 
+                    <br><br>
+                    <b>5% or 7,369</b> - This represents an increase of about 5%, or 7,369 jobs, compared to the end of 2020.
+                    <br><br>
+                    <b>17%</b> - Clean energy employment in the State was 17% higher compared to the baseline estimate for 2015. 
+                </div>
+                <div class="right">
+                    <div id="ge_chart1"></div>
+                    <p class="mid-text" style="font-size: 14px">
+                        The growth of clean energy employment in New York State from 2015 to 2021
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart2 -->
+        <div class="middleThings">
+            <div class="midHeader">
                 <span>
                     Alternative Transportation Employment
                 </span>
             </div>
-            <p class="mid-text">
-                The bar chart below shows the the growth of employment in alternative transportation sector.
-            </p>
-            <div id="ge_chart2"></div>
-            <p class="mid-text">
-                The alternative transportation sector saw unprecedented growth between 2020 and 2021, expanding by almost 26% or 2,318 jobs in just 12 months.
-                <br><br>
-                All of the sub-technologies grew between the five years 2016 and 2021, but about half of the overall job growth stemmed from the growth in hybrid electric vehicle employment.
-                <br><br>
-                Electric vehicle employment is the second largest contributor to job growth in the alternative transportation sector. This is followed by plug-in hybrids, hydrogen and fuel cells, with the least growth in natural gas.
-            </p>
-            
-            <!--chart3-->
+            <div class="mid-text">
+                <div class="left">
+                    The alternative transportation sector saw unprecedented growth between 2020 and 2021, expanding by almost 26% or 2,318 jobs.
+                    <br><br>
+                    All of the sub-technologies grew between the five years 2016 and 2021, but about half of the overall job growth stemmed from the growth in hybrid electric vehicle employment.
+                    <br><br>
+                    Electric vehicle employment is the second largest contributor to job growth in the alternative transportation sector. This is followed by plug-in hybrids, hydrogen and fuel cells, with the least growth in natural gas.
+                </div>
+                <div class="right">
+                    <div id="ge_chart2"></div>
+                    <p class="mid-text" style="font-size: 14px">
+                        The growth of employment in alternative transportation sector from 2016 to 2021
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart3 -->
+        <div class="middleThings">
             <div class="midHeader">
                 <span>
                     Electric Vehicle Registrations
                 </span>
             </div>
-            <p class="mid-text">
-                The scatter plot explores the registrations of new electric vehicles in the state.
-            </p>
-            <div id="ge_chart3"></div>
-            <p class="mid-text">
-                The scatter plot above explores the registrations of new electric vehicles in the state.
-                <br><br>
-                This unprecedented job growth coincides with a boom in electric vehicle registration in New York. Original electric vehicle registrations in the State nearly doubled between 2020 and 2021, jumping from about 21,000 in 2020 to about 41,000 in 2021. Of the nearly 41,000 new electric vehicle registrations in 2021, about 23,000 were battery electric vehicles (BEVs) and 18,000 were plug-in hybrid electric vehicles (PHEVs).
-            </p>
-            
-            <!--map-->
+            <div class="mid-text">
+                <div class="left">
+                    This unprecedented job growth coincides with a boom in electric vehicle registration in New York. Original electric vehicle registrations in the State nearly doubled between 2020 and 2021, jumping from about 21,000 in 2020 to about 41,000 in 2021. Of the nearly 41,000 new electric vehicle registrations in 2021, about 23,000 were battery electric vehicles (BEVs) and 18,000 were plug-in hybrid electric vehicles (PHEVs).
+                </div>
+                <div class="right">
+                    <div id="ge_chart3"></div>
+                     <p class="mid-text" style="font-size: 14px">
+                        The registrations of new electric vehicles in the state
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!--map-->
+        <div class="middleThings">
             <div class="midHeader">
                 <span>
                     Electric Vehicle Charging Station Locator
@@ -123,27 +134,27 @@
             <p class="mid-text">
                 Electric vehicles (EVs) play an important role in New York City's green economy. The city has implemented policies and incentives to encourage the adoption of EVs as an alternative to conventional gasoline powered vehicles. These include the installation of EV charging stations, tax credits for the purchase of EVs, and the promotion of electric public transportation.
                 <br><br>
-                By promoting the use of electric vehicles, the city aims to reduce carbon emissions, improve air quality and pave the way for a sustainable transport system. The image below shows a map of electric vehicle station locators in New York City, with the different energy sources marked in different colours.  </p>
-            <div id="afdc-stations"><div id="afdc-stations-loading">Loading alternative fueling station locator...</div></div><script type="text/javascript">window.afdcStationsOptions = {"country":"US","localeCountry":"US","path":"/find/nearest","query":{"location":"NYC"}}</script><script async defer src="https://widgets.nrel.gov/afdc/station-locator/assets/embed.js"></script><noscript>Please enable JavaScript to view the alternative fueling station locator.</noscript>
-            
-            <p>
+                By promoting the use of electric vehicles, the city aims to reduce carbon emissions, improve air quality and pave the way for a sustainable transport system. The image below shows a map of electric vehicle station locators in New York City, with the different energy sources marked in different colours. 
                 <br><br>
             </p>
-
+            
+            <div id="afdc-stations"><div id="afdc-stations-loading">Loading alternative fueling station locator...</div></div><script type="text/javascript">window.afdcStationsOptions = {"country":"US","localeCountry":"US","path":"/find/nearest","query":{"location":"NYC"}}</script><script async defer src="https://widgets.nrel.gov/afdc/station-locator/assets/embed.js"></script><noscript>Please enable JavaScript to view the alternative fueling station locator.</noscript>
         </div>
         
-            <!--Line+footer-->
-            <div class="gray-border">
-            </div>
+        <!--Line+footer-->
+        <!--<div class="gray-border">
+        </div>-->
+        
+        <hr>
 
-            <footer>
+        <footer>
                 © 2023 CASA0003<br>
                 Digital Visualisation Group 02
-            </footer>
-  
-    <script src='./js/ge_chart1.js' type="text/javascript"></script>
-    <script src='./js/ge_chart2.js' type="text/javascript"></script>
-    <script src='./js/ge_chart3.js' type="text/javascript"></script>
+        </footer>
         
-</body>
+        <script src='./js/ge_chart1.js' type="text/javascript"></script>
+        <script src='./js/ge_chart2.js' type="text/javascript"></script>
+        <script src='./js/ge_chart3.js' type="text/javascript"></script>
+    </body>
+
 </html>
