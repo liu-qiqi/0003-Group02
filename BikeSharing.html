@@ -276,7 +276,7 @@
     var optionflow;
 
     myChartFlowchart.showLoading();
-    $.getJSON("./flow chart 2014.json", function (graph) {
+    $.getJSON("./data/flow chart 2014.json", function (graph) {
         console.log(graph.nodes[0])
         myChartFlowchart.hideLoading();
         graph.nodes.forEach(function (node) {
