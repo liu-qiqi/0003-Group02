@@ -2,34 +2,80 @@
 <html>
 <head>
     <title>Pedaling Towards Sustainability - The Revival of New York City</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-    <link rel="stylesheet" href="./css/ge_style.css">
-    
-    <style src='./css/ge_style.css'></style>
+    <link rel="stylesheet" href="./css/air_quality.css">
+
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Top navigation style */
+        ul.navbar {
+          position: fixed;
+          top: 0;
+          width: 100%;
+            height:50px;
+
+
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+
+          background-color: rgb(154,132,109);
+
+          z-index: 100;
+        }
+
+        li {
+          float: left;
+        }
+
+        ul.navbar li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-family:'Montserrat',sans-serif;
+          font-weight: bold;
+        }
+
+        ul.navbar li a:hover {
+          color: white;
+          font-weight: bold;
+          background-color: rgb(176, 158, 140);
+        }
+
+        .active {
+          background-color: rgb(123, 93, 62);
+        }
+
+        /*page*/
         .mid-title{
-            text-align:center;
+            text-align: center;
             font-weight: 800;
-            font-size: 50px;
-            font-family:'Geneva',sans-serif;
-            margin-top:80px;
-            width:100%;
+            font-size: 60px;
+            font-family:'Arial',sans-serif;
+            margin-top: 80px;
         }
         .mid-name{
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 25px;
+            font-weight: 700;
             margin: 30px 0;
-            text-align:center;
-            text-transform: capitalize;
-            font-family:'Geneva',sans-serif;
-            width:100%;
+            text-align: center;
+            font-family: "Arial",sans-serif;
         }
         .mid-text{
             font-size: 20px;
             text-align: justify;
-            font-weight:lighter;
-            font-family:'Geneva',sans-serif;
+            /*font-weight:lighter;*/
+            font-family:'Arial',sans-serif;
             margin-top:35px;
             margin-bottom:35px;
             margin-left:10px;
@@ -73,31 +119,29 @@
     
     <!-- Text -->
     <div class="middleThings">
-        <div class="mid-text">
             <p class="mid-text">
                 Since the initiation of the "OneNYC" strategy in 2015, New York City has been committed to ensuring a sustainable future, with a particular focus on improving air quality. This strategy has driven a series of initiatives, including increasing green spaces, promoting the adoption of clean energy vehicles, and encouraging the use of public transportation and bicycles for commuting. 
                 <br><br>
                 The air quality in New York City is closely related to the presence of air pollution and combustion emissions (Matte et al., 2013), with one of the major contributors being vehicle exhaust. In light of this, our goal is to investigate the improvements in air quality over the past decade (2011-2021) in New York City and explore the connections between <b>air quality</b> improvements, the expansion of <b>green spaces</b> (King et al., 2014), the promotion of <b>clean energy</b>, and the implementation of <b>bike-sharing</b> programs. Through data analysis and visual representations, we aim to showcase the following aspects:
             </p>
                 
-            <p style="font-size: 18px; text-align: justify; font-weight:lighter; font-family:'Geneva',sans-serif; margin-top:35px; margin-bottom:35px; margin-left:10px; width:100%;">
+            <p class="mid-text">
                 
-                <li>Air Quality Improvement Trends: By analysing air quality indicators in New York City, we will present the overall trends in air quality improvement over the past decade. This includes examining parameters such as particulate matter concentration, emissions of pollutants, and air quality index.</li>
+                · Air Quality Improvement Trends: By analysing air quality indicators in New York City, we will present the overall trends in air quality improvement over the past decade. This includes examining parameters such as particulate matter concentration, emissions of pollutants, and air quality index.
                 <br>
-                <li>Expansion of Green Spaces: We will highlight the increase in green spaces within the city and explore their impact on air quality. Through visualizations such as maps and charts, we will showcase the changes in green space coverage and its correlation with air quality improvements.</li>
+                · Expansion of Green Spaces: We will highlight the increase in green spaces within the city and explore their impact on air quality. Through visualizations such as maps and charts, we will showcase the changes in green space coverage and its correlation with air quality improvements.
                 <br>
-                <li>Promotion of Clean Energy: We will delve into the growth of clean energy adoption in New York City, including the expansion of renewable energy sources and the implementation of sustainable practices. This will involve examining the contribution of clean energy to reducing combustion emissions and its positive effects on air quality.</li>
+                · Promotion of Clean Energy: We will delve into the growth of clean energy adoption in New York City, including the expansion of renewable energy sources and the implementation of sustainable practices. This will involve examining the contribution of clean energy to reducing combustion emissions and its positive effects on air quality.
                 <br>
-                <li>Bike Sharing Systems: We will analyse the usage trends of bike-sharing programs in the city and explore their potential impact on air quality. This will include examining the development of bike infrastructure and its association with reduced vehicle emissions.<br><br></li>     
+                · Bike Sharing Systems: We will analyse the usage trends of bike-sharing programs in the city and explore their potential impact on air quality. This will include examining the development of bike infrastructure and its association with reduced vehicle emissions.<br>  
             </p>
-        </div>
-        <div class="mid-text">
+        
             <p class="mid-text">
              Through this web project, we aim to shed light on the relationship between air pollution, green spaces, clean energy, and bike sharing in New York City. By presenting data-driven insights and visualizations, we strive to deepen the understanding of the city's sustainable development efforts and provide compelling evidence for informed decision-making in the future.
             </p>
-        </div>
            
-    </div>
+        </div>
+       
 
     <!-- !PAGE CONTENT! -->
     <div class="middleThings">
