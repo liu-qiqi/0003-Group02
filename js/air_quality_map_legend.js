@@ -46,7 +46,7 @@ const getColorLabelsByLayer = function (layer) {
            '15.28 ~ 16.72',
            '16.72 ~ 18.73',
            '18.73 ~ 22.34',
-           '22.34 ~ 47.8'
+           '22.34 ~ 47.80'
        ]
      case "O3":
         return [
