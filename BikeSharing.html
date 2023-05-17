@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Pedaling Towards Sustainability - The Revival of New York City</title>
+
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+    <link href='bike_sharing.css' rel='stylesheet' />
+
+    <!--Mapbox.js-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <!--D3.js-->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!--ECharts-->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <!-- DeckGL Library -->
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+
+
+<body>
+<!-- navigation -->
+<ul class="navbar">
+    <li style="float:right"><a href="Home.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="AirQuality.html">Air Quality</a></li>
+    <li><a href="GreenSpaces.html">Green Spaces</a></li>
+    <li><a class="active" href="CleanEnergy.html">Clean Energy</a></li>
+    <li><a href="BikeSharing.html">Bike Sharing</a></li>
+</ul>
+
+<!-- introduction -->
+<div class="middleThings">
+    <div class="mid-title">
+        The change of bike sharing in NewYork
+    </div>
+</div>
+
+<hr>
+
+<div class="middleThings">
+    <p class="mid_text">As an environmentally friendly mode of transportation, bicycle sharing reduces the need for non-renewable resources
+        such as gasoline and oil. Compared to fuel vehicles such as cars, bicycles do not produce tailpipe emissions and
+        therefore reduce atmospheric emissions of carbon dioxide and other harmful gases, reducing the level of air pollution
+        and improving urban air quality. At the same time bicycle sharing reduces the need for transportation infrastructure and resources.
+        Compared to building and maintaining facilities such as automobile roads and parking lots, bicycle lanes are less expensive to build
+        and maintain. It is in line with the environmental protection concept of green development.</p>
+    <p class="mid_text">Following the introduction of the green economy in New York City, bike-sharing has been used as a way to regenerate
+        the city and promote sustainable urban development by improving the environment, road traffic and the health of residents.
+        The linear graph below shows that the number of bicycle riders has increased significantly since 2015, as well as the number of
+        bike-sharing stations set up, with the 2022 figures showing a 3 to 4-fold increase compared to the 2014 figures. This shows that
+        New York State has a large investment in bike-sharing.</p>
+</div>
+
+<!-- line chart -->
+<div class="middleThings">
+    <div class="button_chart">
+        <button class="btn-secondary" id="chart_bike">bike amount</button>
+        <button class="btn-secondary" id="chart_stat">station count</button>
+    </div>
+    <div id="table"></div>
+</div>
+
+<!-- chart explanation and  map describe -->
+<div class="middleThings">
+    <p class="mid_text">Then we will have a look at the change of points of stations in the map with the time change.
+        In 2014, when the Citi Bike Share system first went into operation, most of the vehicles were placed in Manhattan,
+        with a small number in Brooklyn. And the map shows that only central Manhattan has a higher number of riders. Over time,
+        in response to green and renewable policies, New York City has made a big push to develop a bike-sharing system,
+        with drop-off locations spreading across almost all of New York in just a few years, and with bike-sharing usage slowly coming in parity
+        in parts of several other boroughs in addition to Central Manhattan. With this strong advocacy of green travel patterns,
+        it is clear that green travel is positively correlated with improved air quality when compared to the results in the previous pages. </p>
+</div>
+
+<!-- map -->
+<div class="iframe-container">
+    <iframe src="./bike_map.html" width="85%" height="100%" ></iframe>
+</div>
+
+<!-- map slider -->
+
+<!-- map problem and flow chart -->
+<div class="middleThings">
+    <p class="mid_text">After exploring the distribution of bike stations on the map, we decided that we could explore the distribution of cycling traffic more specifically,
+        i.e. focusing on more detailed stations. Try to discover if there is a relationship between the most trafficked stations that vary
+        from district to district and the air quality and new parks in their area. </p>
+    <p class="mid_text">The flow chart below shows the site foot traffic and inter-site traffic within different boroughs at different times.</p>
+</div>
+<!-- flow chart -->
+<div id="flowchart"></div>
+<!-- conclusion -->
+
+<!-- footer -->
+<hr>
+<footer>
+    © 2023 CASA 0003 <br>
+    Digital Visualisation Group 02
+</footer>
+<script>
+    // change line chart
+    document.getElementById('chart_stat').addEventListener("click", (event) =>{
+        var myChartEchart = echarts.init(document.getElementById("table"));
+        var option1 = {
+            visualMap: {
+                show: false,
+                type: 'continuous',
+                seriesIndex: 0,
+                min: 0,
+                max: 14
+            },
+            title: {
+                left: 'center',
+                text: 'Number of stations 2014 - 2022',
+                textStyle: {
+                    color: "black",
+                    fontSize: '1.2em',
+                    fontWeight: "bold"
+                },
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                name:"year",
+                type: "category",
+                data: yearlist,
+                nameLocation: 'center',
+                nameGap: 25,
+                boundaryGap: ['20%', '20%']
+            },
+            yAxis: {
+                name:'Count',
+                type: "value",
+                nameLocation: 'center',
+                nameGap: 70,
+            },
+            series: [{
+                type: 'line',
+                lineStyle: {
+                    color: 'black',
+                    width: 3
+                },
+                symbol: 'circle',
+                symbolSize: 10,
+                //showSymbol: false,
+                data: stationnumber
+            }]
+        };
+        option1&&myChartEchart.setOption(option1)
+    })
+
+    document.getElementById('chart_bike').addEventListener("click", (event) =>{
+        var myChartEchart = echarts.init(document.getElementById("table"));
+        var option2 = {
+            visualMap: {
+                show: false,
+                type: 'continuous',
+                seriesIndex: 0,
+                min: 0,
+                max: 14
+            },
+            title: {
+                left: 'center',
+                text: 'Number of rides 2014 - 2022',
+                textStyle: {
+                    color: "black",
+                    fontSize: '1.2em',
+                    fontWeight: "bold"
+                },
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                name:"year",
+                type: "category",
+                data: yearlist,
+                nameLocation: 'center',
+                nameGap: 25,
+                boundaryGap: ['20%', '20%']
+            },
+            yAxis: {
+                name:'Count (thousand)',
+                type: "value",
+                nameLocation: 'center',
+                nameGap: 70,
+            },
+            series: [{
+                type: 'line',
+                lineStyle: {
+                    color: 'black',
+                    width: 3
+                },
+                symbol: 'circle',
+                symbolSize: 10,
+                //showSymbol: false,
+                data: chartvalue
+            }]
+        };
+        option2&&myChartEchart.setOption(option2)
+    })
+
+
+    // line chart data
+    var yearlist = [];
+    for (i=2014; i<=2022; i++){
+        yearlist.push(i)
+    }
+    const chartvalue = [8081, 9937, 13845, 16364, 17548, 20551, 19506, 27661, 30689]
+    //const chartvalue = [8081216, 9937969, 13845655, 16364657, 17548339, 20551697, 19506857, 27661451, 30689921];
+    const stationnumber = [345, 509, 631, 776, 806, 912, 1203, 1007, 1334];
+
+
+    // line chart initialization
+    var myChartEchart = echarts.init(document.getElementById("table"));
+    var option = {
+        visualMap: {
+            show: false,
+            type: 'continuous',
+            seriesIndex: 0,
+            min: 0,
+            max: 14
+        },
+        title: {
+            left: 'center',
+            text: 'Number of rides 2014 - 2022',
+            textStyle: {
+                color: "black",
+                fontSize: '1.2em',
+                fontWeight: "bold"
+            },
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        xAxis: {
+            name:"year",
+            type: "category",
+            data: yearlist,
+            nameLocation: 'center',
+            nameGap: 25,
+            boundaryGap: ['20%', '20%']
+        },
+        yAxis: {
+            name:'Count (thousand)',
+            type: "value",
+            nameLocation: 'center',
+            nameGap: 70,
+        },
+        series: [{
+            type: 'line',
+            lineStyle: {
+                color: 'black',
+                width: 3
+            },
+            symbol: 'circle',
+            symbolSize: 10,
+            symbolColor: 'black',// 设置符号的颜色为红色
+            data: chartvalue
+        }]
+    };
+    option&&myChartEchart.setOption(option)
+
+
+
+
+    var myChartFlowchart = echarts.init(document.getElementById('flowchart'));
+    var optionflow;
+
+    myChartFlowchart.showLoading();
+    $.getJSON("./flow chart 2014.json", function (graph) {
+        console.log(graph.nodes[0])
+        myChartFlowchart.hideLoading();
+        graph.nodes.forEach(function (node) {
+            node.label = {
+                show: node.symbolSize > 30
+            };
+        });
+        optionflow = {
+            title: {
+                text: 'Les Miserables',
+                subtext: 'Circular layout',
+                top: 'bottom',
+                left: 'right'
+            },
+            tooltip: {},
+            legend: [
+                {
+                    data: graph.categories.map(function (a) {
+                        return a.name;
+                    })
+                }
+            ],
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series: [
+                {
+                    name: 'Station Flow',
+                    type: 'graph',
+                    layout: 'circular',
+                    circular: {
+                        rotateLabel: true
+                    },
+                    data: graph.nodes,
+
+                    links: graph.links,
+                    categories: graph.categories,
+                    roam: true,
+                    label: {
+                        position: 'right',
+                        formatter: '{b}'
+                    },
+                    lineStyle: {
+                        color: 'source',
+                        curveness: 0.3
+                    }
+                }
+            ]
+        };
+        myChartFlowchart.setOption(optionflow);
+    });
+
+    optionflow && myChartFlowchart.setOption(optionflow);
+
+
+
+
+
+</script>
+
+</body>
+</html>
