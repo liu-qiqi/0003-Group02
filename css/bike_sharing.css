@@ -1,38 +1,41 @@
 /* Top navigation style */
 ul.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:100;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(154,132,109);
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  background-color: rgb(154,132,109);
+
+  z-index: 100;
 }
 
-li{
-    float: left;
+li {
+  float: left;
 }
 
 ul.navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family:'Montserrat',sans-serif;
-    font-weight: bold;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family:'Montserrat',sans-serif;
+  font-weight: bold;
 }
 
 ul.navbar li a:hover {
-    color: white  ;
-    font-weight: bold;
-    background-color: rgb(176, 158, 140);
+  color: white;
+  font-weight: bold;
+  background-color: rgb(176, 158, 140);
 }
 
 .active {
-    background-color: rgb(123, 93, 62);
+  background-color: rgb(123, 93, 62);
 }
 
 
