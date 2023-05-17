@@ -15,11 +15,7 @@
       legend: {
         data: ['BEV', 'PHEV']
       },
-      toolbox: {
-        feature: {
-          saveAsImage: {}
-        }
-      },
+      
       xAxis: {
         type: 'category',
         boundaryGap: false,
