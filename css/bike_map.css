@@ -25,14 +25,18 @@ body {
 
 #map_describe {
     position: absolute;
-    width: 240px;
-    height: 250px;
+    width: 320px;
+    height: 200px;
     background-color: white;
-
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .session {
+    width: 250px;
     margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 30px;
 }
 
 .row {
@@ -45,8 +49,30 @@ body {
     margin-bottom: 5px;
 }
 
+
+.table{
+    margin: 0 auto;
+
+}
+
+
 .label {
-    width: 15%;
-    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+
+.legend {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 230px;
+    background-color: white;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.legend-text{
     text-align: center;
 }
