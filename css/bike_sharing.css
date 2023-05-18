@@ -36,7 +36,10 @@ ul.navbar li a:hover {
 }
 
 
-
+body {
+  margin: 0;
+  padding: 0;
+}
 /* Text style */
 p{
     text-align: justify;
