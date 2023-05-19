@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+a{
+  text-decoration:none;
+}
+
 /* Top navigation style */
 ul.navbar {
   position: fixed;
@@ -68,18 +72,19 @@ ul.navbar li a:hover {
 .row {
   margin: 20px 0;
   font-family: "Geneva",sans-serif;
+  font-weight: lighter;
   font-size: 20px;
   text-align: justify;
 }
 
 .row.row-1 {
   text-align: justify;
-  font-weight: lighter;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/*
 .row.row-1 .col.col-l {
   width: 50%;
 }
@@ -95,7 +100,7 @@ ul.navbar li a:hover {
 }
 
 .row.row-1 .col.col-r p {
-  font-weight: lighter;
+  font-weight: lighte;
 }
 
 .row.row-2 {
@@ -108,53 +113,42 @@ ul.navbar li a:hover {
 .row.row-2 .col.col-l{
   width: 10%;
 }
+*/
 
-.row.row-3 {
+.row.row-2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.row.row-3 .col.col-l {
+.row.row-2 .col.col-l {
   width: 65%;
 }
 
-.row.row-3 .col.col-l p {
-  font-weight: lighter;
-}
-
-.row.row-3 .col.col-r {
+.row.row-2 .col.col-r {
   width: 30%;
 }
 
-.row.row-3 .col.col-r img {
+.row.row-2 .col.col-r img {
   display: block;
   width: 100%;
 }
 
-.row.row-4 .chart-title {
-  margin: 5px 0;
-  text-align: center;
+.row.row-3 {
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
-.row.row-4 #citywide-line-chart {
-  width: 1000px;
-  height: 350px;
-}
-
-.row.row-5 {
-  font-size: 20px;
-  font-weight: lighter;
-  font-family: "Geneva",sans-serif;
-}
-
-.row.row-6 #map {
+.row.row-4 #map {
   position: relative;
   width: 100%;
-  height: 730px;
+  height: 780px;
 }
 
-.row.row-6 .map-overlay {
+.row.row-4 .map-overlay {
   position: absolute;
   font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
   width: 310px;
@@ -164,7 +158,7 @@ ul.navbar li a:hover {
   z-index: 10;
 }
 
-.row.row-6 .map-overlay .map-overlay-inner {
+.row.row-4 .map-overlay .map-overlay-inner {
   background-color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
@@ -173,45 +167,45 @@ ul.navbar li a:hover {
   width: 310px;
 }
 
-.row.row-6 .map-overlay table {
+.row.row-4 .map-overlay table {
   border: none;
   width: 100%;
 }
 
-.row.row-6 .map-overlay h2 {
+.row.row-4 .map-overlay h2 {
   line-height: 24px;
   display: block;
   margin: 0 0 10px;
 }
 
-.row.row-6 .map-overlay label {
+.row.row-4 .map-overlay label {
   font: 16px/18px "Helvetica Neue", Arial, Helvetica, sans-serif;
   vertical-align: bottom;
   margin: 0;
   padding: 0;
 }
 
-.row.row-6 .map-overlay input {
+.row.row-4 .map-overlay input {
   display: inline;
   vertical-align: middle;
   margin: 5px;
   padding: 0;
 }
 
-.row.row-6 .map-overlay input[type="range"] {
+.row.row-4 .map-overlay input[type="range"] {
   width: 250px;
 }
 
-.row.row-6 .map-overlay p.credit {
+.row.row-4 .map-overlay p.credit {
   margin: 5px 0 0 0;
   padding: 0;
 }
 
-.row.row-6 .map-legend {
+.row.row-4 .map-legend {
   position: absolute;
   width: 120px;
   height: 150px;
-  bottom: 35px;
+  bottom: 50px;
   right: 25px;
   line-height: 22px;
   background-color: rgba(160, 160, 160, 0.5);
@@ -219,7 +213,7 @@ ul.navbar li a:hover {
   z-index: 10;
 }
 
-.row.row-6 .legend-key {
+.row.row-4 .legend-key {
   display: inline-block;
   border-radius: 20%;
   width: 10px;
@@ -228,20 +222,46 @@ ul.navbar li a:hover {
   margin-right: 5px;
 }
 
-.row.row-6 .borough_map_wrapper {
+.row.row-4 .borough_map_wrapper {
   width: 100%;
   margin: 10px 0;
 }
 
-.row.row-6 .borough_map_wrapper img {
+.row.row-4 .borough_map_wrapper img {
   display: block;
   width: 70%;
   margin-left: 35px;
 }
 
-.row.row-6 #line-chart {
+.row.row-4 #line-chart {
   margin-top: 10px;
   width: 330px;
+}
+
+.row.row-5 {
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.row.row-6 .chart-title {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.row.row-6 #estimated-line-chart {
+  width: 1000px;
+  height: 350px;
+}
+
+.ref {
+  text-align: justify;
+  font-weight: lighter;
+  font-size: 14px; 
+  color:grey;
+  margin-top: 50px;
 }
 
 hr {
