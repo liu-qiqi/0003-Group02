@@ -1,4 +1,4 @@
-const elLineChart = document.getElementById('boro-line-chart');
+const elLineChart = document.getElementById('line-chart');
 
 // Data
 const seriesList = {
@@ -37,6 +37,13 @@ const seriesList = {
             smooth: true,
             data: [8, 8.4, 7.7, 6.8, 6.8, 6.4, 5.9, 5.5, 6.2],
         },
+
+        {
+            name: 'Citywide',
+            type: 'line',
+            smooth: true,
+            data: [8.6, 8.9, 8.6, 7.4, 7.4, 7, 6.6, 6.1, 6.5],
+        }
     ],
 
     'O3': [
@@ -73,6 +80,13 @@ const seriesList = {
             type: 'line',
             smooth: true,
             data: [31.3, 31.4, 32.6, 35.1, 28.5, 29.8, 29.3, 28.6, 29.5],
+        },
+
+        {
+            name: 'Citywide',
+            type: 'line',
+            smooth: true,
+            data: [31, 31.4, 31.8, 33.8, 29.5, 30.6, 30.6, 29.9, 30.2],
         }
     ],
 
@@ -110,6 +124,13 @@ const seriesList = {
             type: 'line',
             smooth: true,
             data: [13.8, 14.2, 13.7, 13.5, 13.4, 12.9, 11.9, 11.6, 12.8],
+        },
+
+        {
+            name: 'Citywide',
+            type: 'line',
+            smooth: true,
+            data: [18.8, 18.9, 18.4, 17.6, 17.8, 17, 15.6, 15.2, 15.7],
         }
     ],
 
@@ -147,6 +168,13 @@ const seriesList = {
             type: 'line',
             smooth: true,
             data: [11.3, 12.3, 11.1, 10.5, 8.2, 7.6, 7.2, 7.8, 9],
+        },
+
+        {
+            name: 'Citywide',
+            type: 'line',
+            smooth: true,
+            data: [16.7, 19.5, 17.5, 15.6, 12.9, 11.7, 10.7, 10.9, 11.4],
         }
     ]
 };
@@ -177,10 +205,10 @@ function drawLineChart(pollutantType) {
         },
 
         legend: {
-            data: ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"],
+            data: ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island", "Citywide"],
             orient: 'horizontal',
             textStyle: {
-                fontSize: '8',
+                fontSize: '10',
             },
         },
 
