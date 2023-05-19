@@ -36,7 +36,7 @@
 
         <hr>
 
-        
+
         <div class="intro-container">
             <div class="intro-text">
                 <p>The continuous expansion of green park areas in New York City over the past two decades, as illustrated by the data, underscores the city's commitment to fostering urban regeneration through environmental stewardship. From the year 2000
@@ -142,17 +142,6 @@
                             color: '#1096CB ' // Set y-axis line color to blue
                         }
                     }
-                }, {
-                    type: 'value',
-                    name: 'Growth Rate (%)',
-                    min: 0,
-                    max: 2,
-                    interval: 0.2,
-                    axisLine: {
-                        lineStyle: {
-                            color: '#1096CB ' // Set y-axis line color to blue
-                        }
-                    }
                 }],
                 series: [{
                     name: 'Total Area (acres)',
@@ -161,14 +150,6 @@
                         color: '#F393B9 ' // Set color of the bars as pink
                     },
                     data: total_areas
-                }, {
-                    name: 'Growth Rate (%)',
-                    type: 'line',
-                    yAxisIndex: 1,
-                    lineStyle: {
-                        color: '#1096CB  ' // Set line color as pink
-                    },
-                    data: growth_rates
                 }]
             };
 

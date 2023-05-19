@@ -316,7 +316,13 @@ function flyToAnimation() {
     if (isFlytoAnimating && isAnimating) {
 
         flytoAnimationButton.textContent = 'FlyTo Stop';
-    } else {
+    } 
+    //修复了点击时间轴stop后，点击flyto start后再点击时间轴start后flyto自动开启的bug
+    else if(isAnimating===false&& isFlytoAnimating===true){
+        isFlytoAnimating = false;
+        flytoAnimationButton.textContent = 'FlyTo Start';
+    }
+    else {
 
         flytoAnimationButton.textContent = 'FlyTo Start';
         //点了stop之后，把地图缩小
