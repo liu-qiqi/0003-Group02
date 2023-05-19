@@ -84,37 +84,6 @@ ul.navbar li a:hover {
   justify-content: space-between;
 }
 
-/*
-.row.row-1 .col.col-l {
-  width: 50%;
-}
-
-.row.row-1 .col.col-r {
-  width: 45%;
-}
-
-.row.row-1 .col.col-l .nyccas-sites {
-  border: none;
-  width: 100%;
-  height: 370px;
-}
-
-.row.row-1 .col.col-r p {
-  font-weight: lighte;
-}
-
-.row.row-2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
-}
-
-.row.row-2 .col.col-l{
-  width: 10%;
-}
-*/
-
 .row.row-2 {
   display: flex;
   align-items: center;
