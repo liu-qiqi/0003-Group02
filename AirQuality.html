@@ -47,44 +47,39 @@
   <div class="middleThings">
     <!-- Text -->
     <div class="row row-1">
-      <div class="col col-l">
-        <iframe class="nyccas-sites" title="NYCCAS Sites" src="https://nycdohmh.maps.arcgis.com/apps/Embed/index.html?webmap=414f6c00466e456a9b8b994017cfc728&extent=-74.4827,40.5223,-73.5962,40.9116&home=true&zoom=true&previewImage=false&scale=true&disable_scroll=false&theme=light"
-            width="100%" height="100%"></iframe>
-      </div>
-      <div class="col col-r">
-        <p>
-          The New York City Community Air Survey (NYCCAS) is the largest ongoing urban 
-          air monitoring program of any U.S. city. 
-          <br><br>
-          It was established by the New York City Department of Health and Mental Hygiene in 2007, 
-          and began collecting data in December 2008 for evaluating the air quality across NYC. 
-          <br><br>
-          They chose about 100 street light poles to set the monitors which includes the 
-          routine sites spread around the city and environmental justice sites near 
-          potentially high-emission locations. 
-        </p>
-      </div>
+      <p>
+        The New York City Community Air Survey (NYCCAS) is the largest ongoing urban 
+        air monitoring program of any U.S. city. 
+
+        It was established by the New York City Department of Health and Mental Hygiene in 2007, 
+        and began collecting data in December 2008 for evaluating the air quality across NYC. 
+        <br><br>
+        They chose about 100 street light poles to set the monitors which includes the 
+        routine sites spread around the city and environmental justice sites near 
+        potentially high-emission locations. 
+
+        The monitors will be strategically mounted at a height of 10-12 feet above the 
+        ground on road poles. These collection devices will serve the purpose of gathering 
+        various pollutants throughout the year. 
+      </p>
     </div>
+
 
     <div class="row row-2">
-      <div class="col.col-l">
-        <img src="./img/sign.png" />
-      </div>
-    </div>
-
-    <div class="row row-3">
       <div class="col col-l">
         <p>
-          The monitors will be strategically mounted at a height of 10-12 feet above the 
-          ground on road poles. These collection devices will serve the purpose of gathering 
-          various pollutants throughout the year. 
-          <br><br>
           Specifically, PM2.5, NO2, and NOx will be continuously collected, while O3 collection 
           will be limited to the summer months. This seasonal differentiation is primarily 
           due to the significant contribution of anthropogenic sources, such as emissions of 
           NOx and volatile organic compounds (VOCs) , which lead to the formation of photochemical 
           smog and secondary ozone production in the presence of intense solar radiation and higher 
           temperatures.
+          <br><br>
+          From 2013 to 2021, the latest year of available data, the annual mean of three leading
+          air pollutants decrease over the years:<br>
+          <b>PM2.5</b> (Fine particles) - <b>24.4%</b><br>
+          <b>NO2</b> (Nitrogen Dioxide) - <b>16.5%</b><br>
+          <b>NOx</b> (Nitric Oxide) - <b>31.7</b>       
         </p>
       </div>
       <div class="col col-r">
@@ -92,32 +87,18 @@
       </div>
     </div>
 
-    <div class="row row-4">
-      <p class="chart-title">
-        <br><br>
-        Citywide Air Pollution
-      </p>
-      <div id='citywide-line-chart'>
-      </div>
-    </div>
 
-    <div class="row row-5">
+    <div class="row row-3">
       <p>
-        From 2013 to 2021, the latest year of available data, the annual mean of three leading
-        air pollutants decrease over the years:<br>
-        Fine particles (PM2.5) - 24.4%<br>
-        Nitrogen Dioxide (NO2) - 16.5%<br>
-        Nitric Oxide (NOx) - 31.7<br>
-        <br><br>
-        The data sources used in this website are from 
+        The data sources used in the following Choropleth Map are from 
         <a href="https://data.cityofnewyork.us/City-Government/Community-Districts/yfnk-k7r4">NYC OpenData</a>
-        and
-        <a href="https://a816-dohbesp.nyc.gov/IndicatorPublic/beta/key-topics/airquality/">NYCCAS Data Hub</a>
-        <br><br>
+        and 
+        <a href="https://a816-dohbesp.nyc.gov/IndicatorPublic/beta/key-topics/airquality/">NYCCAS Data Hub</a>.
       </p>
     </div>
 
-    <div class="row row-6">
+
+    <div class="row row-4">
       <div id="map">
 
         <div class="map-overlay">
@@ -147,6 +128,7 @@
 
               <tr>
                 <td class="radios">
+                  <br>
                   &nbsp;&nbsp;<input type="radio" name="layers" value="PM2_5" checked /><label>PM2.5&nbsp;</label>
                   <input type="radio" name="layers" value="NO2" /><label>NO2 &nbsp;</label>
                   <input type="radio" name="layers" value="NOx" /><label>NOx &nbsp;</label>
@@ -155,7 +137,7 @@
               </tr>
             </table>
 
-            <div id="boro-line-chart"></div>
+            <div id="line-chart"></div>
 
             <div class="borough_map_wrapper">
               <img src="./img/Borough_map.png" />
@@ -168,9 +150,55 @@
         </div>
 
       </div>
-
     </div>
 
+    <div class="row row-5">
+      <p>
+        The <b>Air Quality</b> in NYC is getting better every year due to policies to enhance cleanup 
+        by increasing the area of <b>Green Spaces</b> and reduce emissions from transportation by 
+        supporting the development of <b>Clean Energy</b> and <b>Bike Sharing</b>.
+        <br><br>
+        According to Srbinovska's (2020) research, a green area reduces the amount of PM2.5 by 
+        an average of 25%.
+
+        Trees can also remove up to 15% of ozone and 8% of NO2 from the air in 
+        areas with complete tree coverage (D.J., 2002).
+
+        And the folling line chart represent the Estimated National Average Vehicle Emissions Rates 
+        per light-duty Vehicle using Gasoline (Grams per mile), and the data is from 
+        <a href="https://www.bts.gov/content/estimated-national-average-vehicle-emissions-rates-vehicle-vehicle-type-using-gasoline-and">National Transportation Statistics</a>.
+      </p>
+    </div>
+
+
+    <div class="row row-6">
+      <p class="chart-title">
+        <b>Average Emission Rates</b>
+      </p>
+      <div id="estimated-line-chart">
+      </div>
+    </div>
+
+
+    <!--reference-->
+    <div class="ref">
+      <p>
+        References:
+        <br>
+        [1] 
+        <a href="https://www.sciencedirect.com/science/article/pii/S0959652620333515?casa_token=spguf1NlO2kAAAAA:7ZC6udwhWSQ1qJgoSbTX_YZV8gh3_3H0PMTfl_mOcWR5Kf3n6yttyOglB5XMq7i3Vl9tw07aag">
+          Mare Srbinovska, Vesna Andova, Aleksandra Krkoleva Mateska, Maja Celeska Krstevska (2020)
+        </a>
+        The effect of small green walls on reduction of particulate matter concentration in open areas.
+        <br>
+        [2] 
+        <a href="http://groundworksdenver.org/devs/Trees_airquality.pdf">
+          Nowak, D.J. (2002)
+        </a>
+        The Effects of Urban Trees on Air Quality. US Department of Agriculture, Forest Service. 
+      </p>
+    </div>
+  
   </div>
 
   <hr>
@@ -180,10 +208,11 @@
     Digital Visualisation Group 02
   </footer>
 
-  <script src="./js/air_quality_citywide_line_chart.js"></script>
-  <script src="./js/air_quality_map_boro_line_chart.js"></script>
-  <script src="./js/air_quality_map_legend.js"></script>
   <script src="./js/air_quality_map.js"></script>
+  <script src="./js/air_quality_map_line_chart.js"></script>
+  <script src="./js/air_quality_map_legend.js"></script>
+  <script src="./js/air_quality_estimated_line_chart.js"></script>  
+
 </body>
 
 </html>
