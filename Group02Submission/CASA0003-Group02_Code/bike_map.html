@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>bike</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <link href='./css/bike_map.css' rel='stylesheet' />
+    <!--D3.js-->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!--ECharts-->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <!-- DeckGL Library -->
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+
+
+<body>
+
+
+<div id="map"></div>
+
+<div id="map_describe">
+    <h2 style="text-align: center">Amount of the bike sharing</h2>
+    <div class='session'>
+        <div class="session">
+            <h2>Year: <label id="active-hour">2014</label></h2>
+            <input id="slider" class="row" type="range" min="0" max="6" step="1" value="0" list="tickmarks" />
+            <datalist id="tickmarks">
+            <option value="0" label="2013"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+            <option value="6"></option>
+            <option value="7"></option>
+            <option value="8" label="2021"></option>
+            </datalist>
+        </div>
+    </div>
+    <p style="text-align: justify; margin: 0 7px 0 7px">Data: <a href='https://citibikenyc.com/system-data'>
+        The CITI bike sharing From 2014 - 2020 </a></p>
+    <div id="bar-chart"></div>
+</div>
+
+
+<div class="legend">
+    <h4 style="text-align: center;  margin-top: 5px; margin-bottom: 5px">amount (thousand)</h4>
+    <table class="table">
+        <tr>
+            <td class="label" style="background-color: #2dc4b2"> </td>
+            <td class="legend-text"><8</td>
+        </tr>
+        <tr>
+            <td class="label" style="background-color: #3bb3c3"> </td>
+            <td class="legend-text">8 - 8.5</td>
+        </tr>
+        <tr>
+            <td class="label" style="background-color: #669ec4"></td>
+            <td class="legend-text">8.5 - 9</td>
+        </tr>
+        <tr>
+            <td class="label" style="background-color: #8b88b6"></td>
+            <td class="legend-text">9 - 9.5</td>
+        </tr>
+        <tr>
+            <td class="label" style="background-color: #a2719b"></td>
+            <td class="legend-text">9.5 - 10</td>
+        </tr>
+        <tr>
+            <td class="label" style="background-color: #aa5e79"></td>
+            <td class="legend-text">10 - 10.5</td>
+        </tr>
+        <tr>
+            <td class="label" style="background-color: black"></td>
+            <td class="legend-text">0</td>
+        </tr>
+    </table>
+</div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoidWNmbmliYiIsImEiOiJjbGQxbTh1c2UwMDEwM3Zsa2czcGtiN3l0In0.n9CxOgCLWgnSu17HtDWXmA'; // Put your Mapbox Public Access token here
+
+        // Load a new map in the 'map' HTML div
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/ucfnibb/cleygekzw000j01o3n8zk5jjq', // style location
+            center: [-73.99, 40.72], // starting position [lng, lat]
+            zoom: 11.5 // starting zoom
+        });
+        map.on('load', function ()  {    // This is our first example of asynchronous JS. We can only add additional layers after the map has loaded
+            // Add the circle layer to the map
+
+            map.addLayer({
+                id: 'bikedata2014',
+                type: 'circle',
+                source: {
+                    type: 'vector',
+                    url: 'mapbox://ucfnibb.1wtsb5ch' // Your Mapbox tileset Map ID
+                },
+                'source-layer': '201401bike-9pk2zo', // name of tilesets
+            })
+        })
+        map.on('load', () => {
+            let filterYear = ['==', ['number', ['get', 'year']], 2014];
+            map.addLayer({
+                id: 'bikeamount',
+                type: 'circle',
+                source: {
+                    type: 'vector',
+                    url: 'mapbox://ucfnibb.3bnkwiva' // Your Mapbox tileset Map ID
+                },
+                'source-layer': 'bike_data_count_by_station-7fc538', // name of tilesets
+                'layout': {
+                    'visibility': 'visible'
+                },
+                paint: {
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'],
+                        ['number', ['get', 'data']],
+                        1,
+                        3,
+                        5,
+                        7
+                    ],
+                    'circle-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['number', ['get', 'data']],
+                        8,
+                        '#2DC4B2',
+                        8.5,
+                        '#3BB3C3',
+                        9,
+                        '#669EC4',
+                        9.5,
+                        '#8B88B6',
+                        10,
+                        '#A2719B',
+                        10.5,
+                        '#AA5E79'
+                    ],
+                    'circle-opacity': 0.9
+                },
+                'filter': ['all', filterYear]
+            });
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // update hour filter when the slider is dragged
+
+        document.getElementById('slider').addEventListener('input', (event) => {
+            const year = parseInt(event.target.value);
+            //console.log(year)
+// update the map
+            filteryear = ['==', ['number', ['get', 'year']], year+2014];
+            map.setFilter('bikeamount', filteryear);
+// update text in the UI
+            document.getElementById('active-hour').innerText = year+2014;
+        });
+
+
+
+        var chartDom = document.getElementById('bar-chart');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    // Use axis to trigger tooltip
+                    type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                }
+            },
+            legend: {},
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value'
+            },
+            yAxis: {
+                type: 'category',
+                data: ['2014', '2015', '2016', '2017', '2018', '2019', '2020']
+            },
+            series: [
+                {
+                    name: 'Manhattan',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [2900, 3241, 3373, 3510, 3689, 3913, 4068]
+                },
+                {
+                    name: 'Brooklyn',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [425, 653, 970, 1341, 1465, 1793, 1880]
+                },
+                {
+                    name: 'Queens',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [0, 98, 120, 234, 290, 330, 378]
+                },
+                {
+                    name: 'Bronx',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [0, 0, 0, 0, 0, 0, 493]
+                },
+
+            ]
+        };
+
+        option && myChart.setOption(option);
+    </script>
+</body>
+</html>

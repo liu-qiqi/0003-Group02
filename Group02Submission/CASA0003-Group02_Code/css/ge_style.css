@@ -1,0 +1,209 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Top navigation style */
+ul.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  background-color: rgb(154,132,109);
+
+  z-index: 100;
+}
+
+li {
+  float: left;
+}
+
+ul.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family:'Montserrat',sans-serif;
+  font-weight: bold;
+}
+
+ul.navbar li a:hover {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(176, 158, 140);
+}
+
+.active {
+  background-color: rgb(123, 93, 62);
+}
+
+
+/*page*/
+.middleThings {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.midHeader {
+    background-color:#E6E1DD;
+    margin-top:50px;
+    margin-bottom:10px;
+    text-align: center;
+    color:rgb(123, 93, 62);
+    font-size:20px;
+    font-family:'Geneva',sans-serif;
+    vertical-align:middle;
+    font-weight:bold;
+}
+
+.mid-title {
+  text-align: center;
+  font-weight: 800;
+  font-size: 60px;
+  font-family:'Montserrat',sans-serif;
+  margin-top: 80px;
+}
+
+.mid-name {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 30px 0;
+  text-align: center;
+  font-family: "Geneva",sans-serif;
+}
+
+.text {
+    font-size: 20px;
+    text-align: center;
+    font-weight:lighter;
+    font-family:'Geneva',sans-serif;
+    margin-top:35px;
+    margin-bottom:35px;
+}
+a{
+  text-decoration: none;
+}
+
+.mid-text{
+    margin: 20px 0;
+    font-family: "Geneva",sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left {
+    width: 40%;
+}
+.right {
+    width: 50%;
+}
+
+.gray-border {
+    width: 1100px;
+    border-bottom: 1px solid #999999;
+    margin: 30px auto;
+    height: 16px;
+}
+
+hr {
+  width: 1100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+footer {
+    font: 14px "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+    margin: 50px 0 100px 0;
+}
+
+
+/*charts*/
+#ge_chart1 {
+    width:  500px;
+    height: 350px;
+    margin: 20px auto;
+    background-color: #f4f4f4;
+    padding-right: 10% auto;
+    padding-left: 10% auto;
+}
+
+#ge_chart2 {
+    width:  500px;
+    height: 350px;
+    margin: 20px auto;
+    background-color: #f4f4f4;
+    padding-right: 10% auto;
+    padding-left: 10% auto;
+}
+
+#ge_chart3 {
+    width:  500px;
+	height: 350px;
+    margin: 20px auto;
+    background-color: #f4f4f4;
+    margin: 0 auto;
+    padding-right: 10% auto;
+    padding-left: 10% auto;
+}
+
+/* map */
+.middleThings #ge_map {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+.map-container {
+  position: absolute;
+  font: 12px/16px "Montserrat", sans-serif;
+  width: 180px;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 10;
+}
+.map-container .inner {
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 180px;
+}
+.table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  }
+.th, td {
+  padding: 5px 10px;
+  font-family: Montserrat, sans-serif;
+  }
+.color-box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  margin-top: 5px;
+  }
+
+.map-container h2 {
+  line-height: 24px;
+  display: block;
+  margin: 0 0 10px;
+  font-family: Montserrat, sans-serif;
+}
+.map-container p.credit {
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+
+

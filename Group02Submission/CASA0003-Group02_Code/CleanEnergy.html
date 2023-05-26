@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Sustainable Revival in NYC - Transforming the Concrete Jungle</title>
+  
+    <!--style-->
+    <link rel="stylesheet" href="./css/ge_style.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+    
+    <!--Load echarts.js-->
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    
+    <!-- mapbox.js -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+
+    <!-- d3.js -->
+    <script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+    <body>
+        <!-- Top navigation div -->
+        <ul class="navbar">
+            <li style="float:right"><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="AirQuality.html">Air Quality</a></li>
+            <li><a href="GreenSpaces.html">Green Spaces</a></li>
+            <li><a class="active" href="CleanEnergy.html">Clean Energy</a></li>
+            <li><a href="BikeSharing.html">Bike Sharing</a></li>
+        </ul>
+
+
+        <!-- Title -->
+        <div class="middleThings">
+            <div class="mid-title">
+                A Cleaner City
+            </div>
+            <div class="mid-name">
+              Clean Energy in NYC
+            </div>
+        </div>
+
+        <hr>
+
+        <!--Intro-->
+        <div class="middleThings">
+            <p class="mid-text">
+                The green economy in New York State is flourishing, with a strong focus on promoting sustainability, improving air quality, adopting clean energy solutions, and encouraging the use of electric vehicles. The city has taken significant steps towards creating a greener future and combating the challenges posed by climate change.
+            </p>
+
+            <p class="mid-text">
+                It is an integral part of the state's vision for a sustainable future. By focusing on air quality improvement, clean energy adoption, and the promotion of electric vehicles, the city is making significant strides towards a greener and more environmentally friendly urban landscape. These efforts not only benefit the environment but also create new job opportunities, spur economic growth, and improve the overall well-being of its residents.
+            </p>
+
+            <p class="mid-text">
+                All graphs and the map are based on data from: </p>
+            <p style="margin: 20px 0; font-family: Geneva,sans-serif;font-size: 20px; font-weight: lighter; display: flex;"> Graphs:&nbsp;
+                <a href="https://www.nyserda.ny.gov/About/Publications/New-York-Clean-Energy-Industry-Report">New York Clean Energy Industry Report;</a></p>   
+            <p style="margin: 20px 0; font-family: Geneva,sans-serif;font-size: 20px; font-weight: lighter; display: flex;"> Map:&nbsp;
+                <a href="https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/all/#request-url">NREL Documentation: Alternative Fuel Stations</a></p>
+        </div>
+
+        
+        <!-- Chart1 -->
+        <div class="middleThings">
+            <div class="midHeader">
+                <span>
+                    Clean Energy Industry
+                </span>
+            </div>
+
+            <div class="mid-text">
+                <div class="left">
+                    <b>165,000</b> - In the last quarter of 2021, clean energy businesses across New York employed more than 165,000 workers. 
+                    <br><br>
+                    <b>5% or 7,369</b> - This represents an increase of about 5%, or 7,369 jobs, compared to the end of 2020.
+                    <br><br>
+                    <b>17%</b> - Clean energy employment in the State was 17% higher compared to the baseline estimate for 2015. 
+                </div>
+                <div class="right">
+                    <div id="ge_chart1"></div>
+                    <p class="mid-text" style="font-size: 14px">
+                        The growth of clean energy employment in New York State from 2015 to 2021
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart2 -->
+        <div class="middleThings">
+            <div class="midHeader">
+                <span>
+                    Alternative Transportation Employment
+                </span>
+            </div>
+            <div class="mid-text">
+                <div class="left">
+                    The alternative transportation sector saw unprecedented growth between 2020 and 2021, expanding by almost 26% or 2,318 jobs.
+                    <br><br>
+                    All of the sub-technologies grew between the five years 2016 and 2021, but about half of the overall job growth stemmed from the growth in hybrid electric vehicle employment.
+                    <br><br>
+                    Electric vehicle employment is the second largest contributor to job growth in the alternative transportation sector. This is followed by plug-in hybrids, hydrogen and fuel cells, with the least growth in natural gas.
+                </div>
+                <div class="right">
+                    <div id="ge_chart2"></div>
+                    <p class="mid-text" style="font-size: 14px">
+                        The growth of employment in alternative transportation sector from 2016 to 2021
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart3 -->
+        <div class="middleThings">
+            <div class="midHeader">
+                <span>
+                    Electric Vehicle Registrations
+                </span>
+            </div>
+            <div class="mid-text">
+                <div class="left">
+                    This unprecedented job growth coincides with a boom in electric vehicle registration in New York. Original electric vehicle registrations in the State nearly doubled between 2020 and 2021, jumping from about 21,000 in 2020 to about 41,000 in 2021. Of the nearly 41,000 new electric vehicle registrations in 2021, about 23,000 were battery electric vehicles (BEVs) and 18,000 were plug-in hybrid electric vehicles (PHEVs).
+                </div>
+                <div class="right">
+                    <div id="ge_chart3"></div>
+                     <p class="mid-text" style="font-size: 14px">
+                        The registrations of new electric vehicles in the state
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!--map-->
+        <div class="middleThings">
+            <div class="midHeader">
+                <span>
+                    Electric Vehicle Charging Station Locator
+                </span>
+            </div>
+            <p class="mid-text">
+                Electric vehicles (EVs) play an important role in New York City's green economy. The city has implemented policies and incentives to encourage the adoption of EVs as an alternative to conventional gasoline powered vehicles. These include the installation of EV charging stations, tax credits for the purchase of EVs, and the promotion of electric public transportation.
+                <br><br>
+                By promoting the use of electric vehicles, the city aims to reduce carbon emissions, improve air quality and pave the way for a sustainable transport system. The image below shows a map of electric vehicle station locators in New York City, with the different energy sources marked in different colours. The vast majority of charging stations in NYC are concentrated in the Manhattan area and are almost electric (ELEC). A few can supply compressed natural gas (CNG) or Ethanol (E85) fuel, and the latter types in the legend are located in other cities in New York State that can be viewed by zooming out the map.
+                <br><br>
+            </p>
+        </div>
+        <div class="middleThings">
+            <div id="ge_map">
+                <div class="map-container">
+                    <div class="inner">
+                        <h2>EV Charging Stations Locator New York City</h2>
+                        <p class="credit">Data: <a href="https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/all/">
+                            Alternative Fuel Stations API - NREL</a>
+                        </p>  
+                    </div>
+                    <div class="inner">
+                        <table>
+                            <tr>
+                            <th>Legend</th>
+                            </tr>
+                            <tr>
+                            <td><div class="color-box" style="background-color: rgb(81, 219, 180);"></div></td>
+                            <td><b>ELEC</b> Electric</td>
+                            </tr>
+                            <tr>
+                            <td><div class="color-box" style="background-color: rgb(245, 190, 102);"></div></td>
+                            <td><b>E85</b> Ethanol</td>
+                            </tr>
+                            <tr>
+                            <td><div class="color-box" style="background-color: rgb(61, 138, 214);"></div></td>
+                            <td><b>CNG</b> Compressed Natural Gas</td>
+                            </tr>
+                            <tr>
+                            <td><div class="color-box" style="background-color: rgb(228, 162, 142);"></div></td>
+                            <td><b>RD</b> Renewable Diesel (R20 and above)</td>
+                            </tr>
+                            <tr>
+                            <td><div class="color-box" style="background-color: rgb(173, 212, 222);"></div></td>
+                            <td><b>HY</b> Hydrogen</td>
+                            </tr>
+                            <tr>
+                            <td><div class="color-box" style="background-color: rgb(24, 125, 13);"></div></td>
+                            <td><b>LNG</b> Liquefied Natural Gas</td>
+                            </tr>
+                            <tr>                                
+                            <td><div class="color-box" style="background-color: rgb(223, 88, 115);"></div></td>
+                            <td><b>BD</b> Biodiesel (B20 and above)</td>
+                            </tr>
+                            <tr>
+                            <td><div class="color-box" style="background-color: rgb(152, 141, 199);"></div></td>
+                            <td><b>LPG</b> Propane</td>
+                             </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!--Line+footer-->
+        <!--<div class="gray-border">
+        </div>-->
+        
+        <hr>
+
+        <footer>
+                © 2023 CASA0003<br>
+                Digital Visualisation Group 02
+        </footer>
+        
+        <script src='./js/ge_chart1.js' type="text/javascript"></script>
+        <script src='./js/ge_chart2.js' type="text/javascript"></script>
+        <script src='./js/ge_chart3.js' type="text/javascript"></script>
+        <script src='./js/ge_map.js'></script>
+    </body>
+
+</html>

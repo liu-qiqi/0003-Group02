@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Sustainable Revival in NYC - Transforming the Concrete Jungle</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.2/echarts.min.js"
+    integrity="sha512-VdqgeoWrVJcsDXFlQEKqE5MyhaIgB9yXUVaiUa8DR2J4Lr1uWcFm+ZH/YnzV5WqgKf4GPyHQ64vVLgzqGIchyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.js"
+    type="application/javascript"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/d3/7.3.0/d3.js" type="application/javascript"></script>
+  <link rel="stylesheet" href="./css/air_quality.css">
+</head>
+
+<body>
+  <!-- Top navigation -->
+  <ul class="navbar">
+    <li style="float:right; "><a href="Home.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a class="active" href="AirQuality.html">Air Quality</a></li>
+    <li><a href="GreenSpaces.html">Green Spaces</a></li>
+    <li><a href="CleanEnergy.html">Clean Energy</a></li>
+    <li><a href="BikeSharing.html">Bike Sharing</a></li>
+  </ul>
+
+  <div id='testdiv' style="margin-top:50px">
+  </div>
+
+
+  <!-- Title -->
+  <div class="middleThings">
+    <div class="mid-title">
+      Breathing in the Metropolis
+    </div>
+    <div class="mid-name">
+      Mapping Air Pollution in NYC
+    </div>
+  </div>
+
+  <hr>
+  
+
+  <div class="middleThings">
+    <!-- Text -->
+    <div class="row row-1">
+      <p>
+        The New York City Community Air Survey (NYCCAS) is the largest ongoing urban 
+        air monitoring program of any U.S. city. 
+
+        It was established by the New York City Department of Health and Mental Hygiene in 2007, 
+        and began collecting data in December 2008 for evaluating the air quality across NYC. 
+        <br><br>
+        They chose about 100 street light poles to set the monitors which includes the 
+        routine sites spread around the city and environmental justice sites near 
+        potentially high-emission locations. 
+
+        The monitors will be strategically mounted at a height of 10-12 feet above the 
+        ground on road poles. These collection devices will serve the purpose of gathering 
+        various pollutants throughout the year. 
+      </p>
+    </div>
+
+
+    <div class="row row-2">
+      <div class="col col-l">
+        <p>
+          Specifically, PM2.5, NO2, and NOx will be continuously collected, while O3 collection 
+          will be limited to the summer months. This seasonal differentiation is primarily 
+          due to the significant contribution of anthropogenic sources, such as emissions of 
+          NOx and volatile organic compounds (VOCs) , which lead to the formation of photochemical 
+          smog and secondary ozone production in the presence of intense solar radiation and higher 
+          temperatures.
+          <br><br>
+          From 2013 to 2021, the latest year of available data, the annual mean of three leading
+          air pollutants decrease over the years:<br>
+          <b>PM2.5</b> (Fine particles) - <b>24.4%</b><br>
+          <b>NO2</b> (Nitrogen Dioxide) - <b>16.5%</b><br>
+          <b>NOx</b> (Nitric Oxide) - <b>31.7%</b>       
+        </p>
+      </div>
+      <div class="col col-r">
+        <img src="./img/methods.jpg" />
+      </div>
+    </div>
+
+
+    <div class="row row-3">
+      <p>
+        The data sources used in the following Choropleth Map are from 
+        <a href="https://data.cityofnewyork.us/City-Government/Community-Districts/yfnk-k7r4">NYC OpenData</a>
+        and 
+        <a href="https://a816-dohbesp.nyc.gov/IndicatorPublic/beta/key-topics/airquality/">NYCCAS Data Hub</a>.
+      </p>
+    </div>
+
+
+    <div class="row row-4">
+      <div id="map">
+
+        <div class="map-overlay">
+          <div class="map-overlay-inner">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Annual Air Pollution</h1>
+
+            <table>
+              <tr>
+                <td>
+                  <input id="slider" type="range" min="0" max="8" step="1" value="0" list="tickmarks" />
+                  <datalist id="tickmarks">
+                    <option value="0" label="2013"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                    <option value="6"></option>
+                    <option value="7"></option>
+                    <option value="8" label="2021"></option>
+                  </datalist>
+                </td>
+                <td>
+                  <label id="year">2013</label>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="radios">
+                  <br>
+                  &nbsp;&nbsp;<input type="radio" name="layers" value="PM2_5" checked /><label>PM2.5&nbsp;</label>
+                  <input type="radio" name="layers" value="NO2" /><label>NO2 &nbsp;</label>
+                  <input type="radio" name="layers" value="NOx" /><label>NOx &nbsp;</label>
+                  <input type="radio" name="layers" value="O3" /><label>O3</label>
+                </td>
+              </tr>
+            </table>
+
+            <div id="line-chart"></div>
+
+            <div class="borough_map_wrapper">
+              <img src="./img/Borough_map.png" />
+            </div>
+          </div>
+        </div>
+
+        <div class="map-legend">
+          <canvas id="legend" width="120" height="150" />
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row row-5">
+      <p>
+        The <b>Air Quality</b> in NYC is getting better every year due to policies to enhance cleanup 
+        by increasing the area of <b>Green Spaces</b> and reducing emissions from transportation by 
+        supporting the development of <b>Clean Energy</b> and <b>Bike Sharing</b>.
+        <br><br>
+        According to Srbinovska's (2020) research, a green area reduces the amount of PM2.5 by 
+        an average of 25%.
+
+        Trees can also remove up to 15% of ozone and 8% of NO2 from the air in 
+        areas with complete tree coverage (D.J., 2002).
+
+        And the folling line chart use the data from 
+        <a href="https://www.bts.gov/content/estimated-national-average-vehicle-emissions-rates-vehicle-vehicle-type-using-gasoline-and">National Transportation Statistics</a>,
+        represents the Estimated National Average Vehicle Emissions Rates 
+        per light-duty Vehicle using Gasoline (Grams per mile).
+      </p>
+    </div>
+
+
+    <div class="row row-6">
+      <p class="chart-title">
+        <b>Average Emission Rates</b>
+      </p>
+      <div id="estimated-line-chart">
+      </div>
+    </div>
+
+
+    <!--reference-->
+    <div class="ref">
+      <p>
+        References:
+        <br>
+        [1] 
+        <a href="https://www.sciencedirect.com/science/article/pii/S0959652620333515?casa_token=spguf1NlO2kAAAAA:7ZC6udwhWSQ1qJgoSbTX_YZV8gh3_3H0PMTfl_mOcWR5Kf3n6yttyOglB5XMq7i3Vl9tw07aag">
+          Mare Srbinovska, Vesna Andova, Aleksandra Krkoleva Mateska, Maja Celeska Krstevska (2020)
+        </a>
+        The effect of small green walls on reduction of particulate matter concentration in open areas.
+        <br>
+        [2] 
+        <a href="http://groundworksdenver.org/devs/Trees_airquality.pdf">
+          Nowak, D.J. (2002)
+        </a>
+        The Effects of Urban Trees on Air Quality. US Department of Agriculture, Forest Service. 
+      </p>
+    </div>
+  
+  </div>
+
+  <hr>
+
+  <footer>
+    © 2023 CASA 0003 <br>
+    Digital Visualisation Group 02
+  </footer>
+
+  <script src="./js/air_quality_map.js"></script>
+  <script src="./js/air_quality_map_line_chart.js"></script>
+  <script src="./js/air_quality_map_legend.js"></script>
+  <script src="./js/air_quality_estimated_line_chart.js"></script>  
+
+</body>
+
+</html>
